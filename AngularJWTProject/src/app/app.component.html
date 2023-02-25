@@ -1,0 +1,26 @@
+<div  class="container-fluid">  
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">  
+      <ul class="navbar-nav">  
+        <li class="nav-item ">  
+          <a routerLink="view-accounts" class="nav-link" class="btn btn-primary active" role="button" >View Accounts</a>  
+        </li>   
+        <li class="nav-item">  
+          <a  routerLink="add-account" class="nav-link" class="btn btn-primary active" role="button" >Add Account</a>  
+        </li>  
+
+        <li class="nav-item">  
+          <a  routerLink="searchAccount" class="nav-link" class="btn btn-primary active" role="button" >Search</a>  
+        </li>  
+        <li class="nav-item">  
+          <a  routerLink="viewmyaccounts" class="nav-link" class="btn btn-primary active" role="button" >View My Accounts</a>  
+        </li>  
+      
+      </ul>  
+      <ul class="nav navbar-nav navbar-right">
+        <li><a routerLink="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a routerLink="loginurl"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="#" (click)="logout()" > Log Out</a></li>
+      </ul>
+    </nav>     
+      <router-outlet></router-outlet>  
+  </div>  

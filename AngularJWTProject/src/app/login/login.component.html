@@ -1,0 +1,30 @@
+<p>login works!</p>
+
+<div style="width: 400px;">
+    <form (ngSubmit)="myLogin()">
+      <div class="form-group">
+          <label for="us">User Name </label>
+          <input type="text" class="form-control" id="us" required [(ngModel)]="username" name="username">
+      </div>
+      <div class="form-group">
+        <label for="pass">Password </label>
+        <input type="text" class="form-control" id="pass" required [(ngModel)]="password" name="pass">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    <hr>
+    <font color="red" *ngIf="loginerror!=null || loginerror!=''">
+         {{loginerror}}
+    </font>
+    <hr>
+        <div *ngIf="!isLogin">
+            <a href="signup">New User ? Register here</a>
+        </div>
+    <hr>
+ 
+    <div *ngIf="user!=null">
+    <h1>User Details are </h1>
+    User Name : {{user.username}} <br>
+    User Role : {{user.role}} <br>
+
+</div>

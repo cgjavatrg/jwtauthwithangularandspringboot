@@ -1,0 +1,12 @@
+<p>viewusers works!</p>
+<Table class="table table-striped table-bordered">
+    <tr>
+        <th> User Name</th><th> Role</th> <th>Created At</th>
+    </tr>
+    <tr (click)="onSelect(user)" *ngFor="let user of users">
+        <td> {{user.username}} </td>
+        <td> {{user.role}} </td>
+        <td> {{user.createdAt}}</td>
+    </tr>
+</Table>
+

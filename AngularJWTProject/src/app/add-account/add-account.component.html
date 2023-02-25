@@ -1,0 +1,51 @@
+<h3>Create Account</h3>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4" >  
+    <div [hidden]="submitted" style="width: 400px;">  
+      <form [formGroup]="accountsaveform" (ngSubmit)="saveAccount()">  
+          <div class="form-group">  
+              <label for="aid">Account Number </label>  
+              <input type="text" class="form-control"  formControlName="aid" data-toggle="tooltip"   
+                 data-placement="right" title="Enter Account Number" >  
+              <div class="alert alert-danger" *ngIf = "(Aid.touched) && (Aid.invalid)"   
+                style="margin-top: 5px;">  
+                  <span *ngIf="Aid.errors.required">Accunt Number is Required</span>  
+                    <span *ngIf = "Aid.errors.minlength">   
+                        MinLength Error   
+                    </span>                     
+                </div>  
+          </div>  
+
+    
+        <div class="form-group">  
+            <label for="balance">Balance </label>  
+            <input type="text" class="form-control"  formControlName="balance" data-toggle="tooltip"   
+               data-placement="right" title="Enter Balance" >  
+            <div class="alert alert-danger" *ngIf = "(Balance.touched) && (Balance.invalid)"   
+              style="margin-top: 5px;">  
+                <span *ngIf="Balance.errors.required">Balance is Required</span>  
+                <span *ngIf="Balance.errors.min">Minimum Balance should be 2000</span>  
+                                       
+              </div>  
+        </div> 
+     
+    
+          
+    
+          <button type="submit" class="btn btn-success" [disabled]="!accountsaveform.valid">Submit</button>  
+      </form>  
+  </div>  
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4">  
+      <div [hidden]="!submitted">  
+         <h4>Account Added SuccessFully!</h4>  
+         <button (click)="addAccountForm()" class='btn btn-primary'>Add More Account</button>  
+      </div>        
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>  

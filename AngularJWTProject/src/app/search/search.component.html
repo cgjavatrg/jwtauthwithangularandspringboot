@@ -1,0 +1,40 @@
+<p>search works!</p>
+<select [(ngModel)]="myoption" (change)="clearList()">
+    <option value="0">None</option>
+    <option value="1">Name</option>
+    <option value="2">Balance Range</option>
+</select>
+
+<div *ngIf="myoption==1">
+    <h3>Search by Customer Name</h3>
+    <input type="text" #nm (input)="getAccountsByName(nm.value)">
+</div>
+<div *ngIf="myoption==2">
+      <h3>Search by Balance range</h3>
+      <input type="text" #bal1 placeholder="Minimum Balance">
+      <input type="text" #bal2 placeholder="Maximum Balance">
+      <button class="btn btn-success" (click)="getAccountsByRange(bal1.value,bal2.value)">Search by Balance Range</button>
+ </div>
+
+
+<hr>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Account Number </th>
+        <th>Customer</th>
+        <th>Balance </th>
+        <th>Email </th>
+        <th>User</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of accounts | async">
+        <td>{{account.aid}}</td>
+        <td>{{account.user.fullName }}</td>
+        <td>{{account.balance}}</td>
+        <td>{{account.user.email}}</td>
+        <td>{{account.user.username}}</td>
+      </tr>
+    </tbody>
+  </table>

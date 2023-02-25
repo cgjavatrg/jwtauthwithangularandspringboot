@@ -1,0 +1,92 @@
+<p>signup works!</p>
+<div class="row">  
+    <div class="col-sm-4"></div>  
+    <div class="col-sm-4" >  
+      <div [hidden]="submitted" style="width: 400px;">  
+        <form [formGroup]="userRegform" (ngSubmit)="saveUser()">  
+            <div class="form-group">  
+                <label for="us">User Name</label>  
+                <input type="text" class="form-control"  formControlName="username" data-toggle="tooltip"   
+                   data-placement="right" title="Enter User Name" >  
+                <div class="alert alert-danger" *ngIf = "(Username.touched) && (Username.invalid)"   
+                  style="margin-top: 5px;">  
+                    <span *ngIf="Username.errors.required">User Name is required</span>  
+                      <span *ngIf = "Username.errors.minlength">   
+                          MinLength Error   
+                      </span>                     
+                  </div>  
+            </div>  
+  
+            <div class="form-group">  
+              <label for="pass">Password  </label>  
+              <input type="text" class="form-control"  formControlName="password" data-toggle="tooltip"   
+                 data-placement="right" title="Enter Password" >  
+              <div class="alert alert-danger" *ngIf = "(Passowrd.touched) && (Passowrd.invalid)"   
+                style="margin-top: 5px;">  
+                  <span *ngIf="Passowrd.errors.required">Password is Required</span>  
+                    <span *ngIf = "Passowrd.errors.minlength">   
+                        MinLength Error   
+                    </span>                     
+                </div>  
+          </div> 
+      
+          <div class="form-group">  
+            <label for="pass">Full Name  </label>  
+            <input type="text" class="form-control"  formControlName="fullName" data-toggle="tooltip"   
+               data-placement="right" title="Enter Full Name" >  
+            <div class="alert alert-danger" *ngIf = "(FullName.touched) && (FullName.invalid)"   
+              style="margin-top: 5px;">  
+                <span *ngIf="FullName.errors.required">Full Name is Required</span>  
+                  <span *ngIf = "FullName.errors.minlength">   
+                      MinLength Error   
+                  </span>                     
+              </div>  
+        </div> 
+        <div class="form-group">  
+          <label for="pass">Email  </label>  
+          <input type="text" class="form-control"  formControlName="email" data-toggle="tooltip"   
+             data-placement="right" title="Enter Email" >  
+          <div class="alert alert-danger" *ngIf = "(Email.touched) && (Email.invalid)"   
+            style="margin-top: 5px;">  
+              <span *ngIf="Email.errors.required">Email is Required</span>  
+                <span *ngIf = "Email.errors.email">   
+                    Invalid Email
+                </span>                     
+            </div>  
+      </div> 
+          <div class="custom-control custom-radio">  
+              <label for="role">Role </label>  
+              <input type="radio" class="form-control"  formControlName="role" data-toggle="tooltip"   
+                 data-placement="right" title="Enter Role" value="CUSTOMER"> CUSTOMER
+                 <input type="radio" class="form-control"  formControlName="role" data-toggle="tooltip"   
+                 data-placement="right" title="Enter Role" value="BANKEMPLOYEE">  BANKEMPLOYEE
+              <div class="alert alert-danger" *ngIf = "(ROLE.touched) && (ROLE.invalid)"   
+                style="margin-top: 5px;">  
+                  <span *ngIf="ROLE.errors.required">Balance is Required</span>  
+                                      
+                </div>  
+          </div> 
+          
+      
+            
+      
+            <button type="submit" class="btn btn-success" [disabled]="!userRegform.valid">Submit</button>
+           
+        </form>
+        <div class="alert alert-danger" *ngIf="errorMsg!=null">
+          {{errorMsg}}
+        </div>  
+    </div>  
+  
+    <div class="col-sm-4"></div>  
+  </div>  
+  <div class="row">  
+    <div class="col-sm-4"></div>  
+    <div class="col-sm-4">  
+        <div [hidden]="!submitted">  
+           <h4>User Added SuccessFully!</h4>  
+           <button (click)="addUserForm()" class='btn btn-primary'>Add More User</button>  
+        </div>        
+    </div>  
+    <div class="col-sm-4"></div>  
+  </div>  
