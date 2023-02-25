@@ -1,0 +1,16 @@
+npm install --save @auth0/angular-jwt@4.2.0
+
+
+npm install --save jwt-decode
+
+
+In angular
+-----------------
+
+ng g interceptor authorization
+
+ng g service user
+
+
+ng g guard  authguard
+
